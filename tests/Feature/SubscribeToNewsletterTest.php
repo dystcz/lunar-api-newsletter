@@ -2,17 +2,20 @@
 
 namespace Dystcz\LunarNewsletter\Tests\Feature;
 
-use Dystcz\LunarNewsletter\Tests\TestCase;
-use Illuminate\Foundation\Testing\RefreshDatabase;
 use function Pest\Faker\fake;
+use Spatie\Newsletter\Facades\Newsletter;
 
-uses(TestCase::class, RefreshDatabase::class);
+it('can subscribe user to newsletter', function () {
+    $email = fake()->email();
 
-it('user can subscribe to newsletter', function () {
+    Newsletter::shouldReceive('subscribe')
+        ->once()
+        ->with($email);
+
     $data = [
         'type' => 'newsletters',
         'attributes' => [
-            'email' => fake()->email(),
+            'email' => $email,
         ],
     ];
 
