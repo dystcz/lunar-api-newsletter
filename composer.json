@@ -26,16 +26,19 @@
         "vyuldashev/laravel-openapi": "^1.10.1"
     },
     "require-dev": {
+        "drewm/mailchimp-api": "^2.5",
         "driftingly/rector-laravel": "^0.17.0",
         "laravel-json-api/testing": "^2.1",
         "laravel/pint": "^1.7",
+        "mockery/mockery": "^1.5",
         "nunomaduro/larastan": "^2.5.1",
         "orchestra/testbench": "^8.0",
         "pestphp/pest": "^2.0",
         "pestphp/pest-plugin-faker": "^2.0",
         "pestphp/pest-plugin-laravel": "^2.0",
         "rector/rector": "^0.15.23",
-        "spatie/laravel-ray": "^1.32"
+        "spatie/laravel-ray": "^1.32",
+        "spatie/mailcoach-sdk-php": "^1.1"
     },
     "repositories": [
         {
