@@ -16,11 +16,12 @@ class LunarNewsletterServiceProvider extends ServiceProvider
          */
         // $this->loadTranslationsFrom(__DIR__.'/../resources/lang', 'lunar-newsletter');
         // $this->loadMigrationsFrom(__DIR__.'/../database/migrations');
-        // $this->loadRoutesFrom(__DIR__.'/routes.php');
+
+        $this->loadRoutesFrom(__DIR__.'/../routes/api.php');
 
         if ($this->app->runningInConsole()) {
             $this->publishes([
-                __DIR__ . '/../config/lunar-newsletter.php' => config_path('lunar-newsletter.php'),
+                __DIR__.'/../config/lunar-newsletter.php' => config_path('lunar-newsletter.php'),
             ], 'config');
 
             // Publishing the translation files.
@@ -39,7 +40,7 @@ class LunarNewsletterServiceProvider extends ServiceProvider
     public function register()
     {
         // Automatically apply the package configuration
-        $this->mergeConfigFrom(__DIR__ . '/../config/lunar-newsletter.php', 'lunar-newsletter');
+        $this->mergeConfigFrom(__DIR__.'/../config/lunar-newsletter.php', 'lunar-newsletter');
 
         // Register the main class to use with the facade
         $this->app->singleton('lunar-newsletter', function () {

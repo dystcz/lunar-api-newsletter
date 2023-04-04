@@ -16,17 +16,26 @@
         }
     ],
     "require": {
-        "php": "^8.0",
-        "dystcz/lunar-api": "main-dev",
-        "illuminate/support": "^8.0|^9.0",
-        "spatie/laravel-newsletter": "^5.0"
+        "php": "^8.1",
+        "dystcz/lunar-api": "dev-main",
+        "illuminate/support": "^10.0",
+        "laravel-json-api/laravel": "^3.0",
+        "laravel-json-api/non-eloquent": "^3.0",
+        "lunarphp/lunar": "^0.3.0-beta",
+        "spatie/laravel-newsletter": "^5.1",
+        "vyuldashev/laravel-openapi": "^1.10.1"
     },
     "require-dev": {
-        "nunomaduro/collision": "^5.0|^6.0",
-        "nunomaduro/larastan": "^2.0",
-        "orchestra/testbench": "^6.0|^7.0",
-        "pestphp/pest": "^1.21",
-        "phpunit/phpunit": "^9.0"
+        "driftingly/rector-laravel": "^0.17.0",
+        "laravel-json-api/testing": "^2.1",
+        "laravel/pint": "^1.7",
+        "nunomaduro/larastan": "^2.5.1",
+        "orchestra/testbench": "^8.0",
+        "pestphp/pest": "^2.0",
+        "pestphp/pest-plugin-faker": "^2.0",
+        "pestphp/pest-plugin-laravel": "^2.0",
+        "rector/rector": "^0.15.23",
+        "spatie/laravel-ray": "^1.32"
     },
     "repositories": [
         {
@@ -47,7 +56,6 @@
     "scripts": {
         "test": "vendor/bin/phpunit",
         "test-coverage": "vendor/bin/phpunit --coverage-html coverage"
-
     },
     "config": {
         "sort-packages": true,

@@ -1,6 +1,6 @@
 <?php
 
-namespace Dystcz\LunarNewsletter;
+namespace Dystcz\LunarNewsletter\Facades;
 
 use Illuminate\Support\Facades\Facade;
 

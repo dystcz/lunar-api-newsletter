@@ -1,4 +1,8 @@
-# Lunar newsletter
+# Lunar Newsletter
+
+This [lunar-api](https://github.com/dystcz/lunar-api) compatible package is basically an API wrapper 
+of [spatie/laravel-newsletter](https://github.com/spatie/laravel-newsletter) for the [lunar](https://github.com/lunarphp/lunar) backend
+which allows your users to **easily sign-up** to Mailchimp or Mailcoach or other email marketing services.
 
 [![Latest Version on Packagist](https://img.shields.io/packagist/v/dystcz/lunar-newsletter.svg?style=flat-square)](https://packagist.org/packages/dystcz/lunar-newsletter)
 [![Total Downloads](https://img.shields.io/packagist/dt/dystcz/lunar-newsletter.svg?style=flat-square)](https://packagist.org/packages/dystcz/lunar-newsletter)
@@ -12,7 +16,15 @@ You can install the package via composer:
 
 ```bash
 composer require dystcz/lunar-newsletter
+
 ```
+To publish the [laravel-newsletter](https://github.com/spatie/laravel-newsletter) config file to `config/newsletter.php` run:
+
+```bash
+php artisan vendor:publish --tag="newsletter-config"
+```
+
+You car read more about the configuration options here: [spatie/laravel-newsletter](https://github.com/spatie/laravel-newsletter)
 
 ## Usage
 
@@ -41,6 +53,7 @@ If you discover any security related issues, please email jakub@dy.st instead of
 ## Credits
 
 -   [Jakub Theimer](https://github.com/dystcz)
+-   [Spatie](https://github.com/spatie)
 -   [All Contributors](../../contributors)
 
 ## License
