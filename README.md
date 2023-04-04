@@ -28,9 +28,7 @@ You car read more about the configuration options here: [spatie/laravel-newslett
 
 ## Usage
 
-```php
 Just install the package and hit `/api/v1/newsletters/-actions/subscribe`
-```
 
 ### Testing
 
