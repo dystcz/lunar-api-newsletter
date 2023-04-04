@@ -6,18 +6,13 @@ use Cartalyst\Converter\Laravel\ConverterServiceProvider;
 use Dystcz\LunarApi\LunarApiServiceProvider;
 use Dystcz\LunarNewsletter\LunarNewsletterServiceProvider;
 use Dystcz\LunarNewsletter\Tests\Stubs\JsonApi\Server;
-use Dystcz\LunarNewsletter\Tests\Stubs\Users\User;
 use Illuminate\Contracts\Debug\ExceptionHandler;
 use Illuminate\Foundation\Application;
-use Kalnoy\Nestedset\NestedSetServiceProvider;
 use LaravelJsonApi\Testing\MakesJsonApiRequests;
 use LaravelJsonApi\Testing\TestExceptionHandler;
-use Lunar\Database\Factories\LanguageFactory;
 use Lunar\LunarServiceProvider;
 use Orchestra\Testbench\TestCase as Orchestra;
-use Spatie\Activitylog\ActivitylogServiceProvider;
-use Spatie\LaravelBlink\BlinkServiceProvider;
-use Spatie\MediaLibrary\MediaLibraryServiceProvider;
+use Spatie\Newsletter\NewsletterServiceProvider;
 
 abstract class TestCase extends Orchestra
 {
@@ -26,15 +21,6 @@ abstract class TestCase extends Orchestra
     protected function setUp(): void
     {
         parent::setUp();
-
-        LanguageFactory::new()->create([
-            'code' => 'en',
-            'name' => 'English',
-        ]);
-
-        config()->set('auth.providers.users.model', User::class);
-
-        activity()->disableLogging();
     }
 
     /**
@@ -58,11 +44,10 @@ abstract class TestCase extends Orchestra
 
             // Lunar core
             LunarServiceProvider::class,
-            MediaLibraryServiceProvider::class,
-            ActivitylogServiceProvider::class,
             ConverterServiceProvider::class,
-            NestedSetServiceProvider::class,
-            BlinkServiceProvider::class,
+
+            // Spatie Newsletter
+            NewsletterServiceProvider::class,
         ];
     }
 
@@ -71,15 +56,8 @@ abstract class TestCase extends Orchestra
      */
     public function getEnvironmentSetUp($app)
     {
-        config()->set('database.default', 'sqlite');
-
-        config()->set('database.migrations', 'migrations');
-
-        config()->set('database.connections.sqlite', [
-            'driver' => 'sqlite',
-            'database' => ':memory:',
-            'prefix' => '',
-        ]);
+        config()->set('newsletter.driver', \Spatie\Newsletter\Drivers\MailChimpDriver::class);
+        config()->set('newsletter.driver_arguments.endpoint', '');
     }
 
     protected function resolveApplicationExceptionHandler($app): void
@@ -88,13 +66,5 @@ abstract class TestCase extends Orchestra
             ExceptionHandler::class,
             TestExceptionHandler::class
         );
-    }
-
-    /**
-     * Define database migrations.
-     */
-    protected function defineDatabaseMigrations(): void
-    {
-        $this->loadLaravelMigrations();
     }
 }
