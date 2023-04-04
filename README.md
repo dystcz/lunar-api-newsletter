@@ -1,4 +1,4 @@
-# Lunar Newsletter
+# [WIP] Lunar Newsletter
 
 This [lunar-api](https://github.com/dystcz/lunar-api) compatible package is basically an API wrapper 
 of [spatie/laravel-newsletter](https://github.com/spatie/laravel-newsletter) for the [lunar](https://github.com/lunarphp/lunar) backend
@@ -29,7 +29,7 @@ You car read more about the configuration options here: [spatie/laravel-newslett
 ## Usage
 
 ```php
-// Usage description here
+Just install the package and hit `/api/v1/newsletters/-actions/subscribe`
 ```
 
 ### Testing
