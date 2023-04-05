@@ -1,6 +1,6 @@
 <?php
 
-namespace Dystcz\LunarNewsletter\Tests\Feature;
+namespace Dystcz\LunarApiNewsletter\Tests\Feature;
 
 use function Pest\Faker\fake;
 use Spatie\Newsletter\Facades\Newsletter;

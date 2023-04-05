@@ -1,6 +1,6 @@
 <?php
 
-namespace Dystcz\LunarNewsletter\Domain\Newsletter\JsonApi\V1;
+namespace Dystcz\LunarApiNewsletter\Domain\Newsletter\JsonApi\V1;
 
 use LaravelJsonApi\Laravel\Http\Requests\ResourceRequest;
 

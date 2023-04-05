@@ -1,11 +1,11 @@
 <?php
 
-namespace Dystcz\LunarNewsletter\Facades;
+namespace Dystcz\LunarApiNewsletter\Facades;
 
 use Illuminate\Support\Facades\Facade;
 
 /**
- * @see \Dystcz\LunarNewsletter\Skeleton\SkeletonClass
+ * @see \Dystcz\LunarApiNewsletter\Skeleton\SkeletonClass
  */
 class LunarApiNewsletterFacade extends Facade
 {

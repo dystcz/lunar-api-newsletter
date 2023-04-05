@@ -1,11 +1,11 @@
 <?php
 
-namespace Dystcz\LunarNewsletter\Tests;
+namespace Dystcz\LunarApiNewsletter\Tests;
 
 use Cartalyst\Converter\Laravel\ConverterServiceProvider;
 use Dystcz\LunarApi\LunarApiServiceProvider;
-use Dystcz\LunarNewsletter\LunarApiNewsletterServiceProvider;
-use Dystcz\LunarNewsletter\Tests\Stubs\JsonApi\Server;
+use Dystcz\LunarApiNewsletter\LunarApiNewsletterServiceProvider;
+use Dystcz\LunarApiNewsletter\Tests\Stubs\JsonApi\Server;
 use Illuminate\Contracts\Debug\ExceptionHandler;
 use Illuminate\Foundation\Application;
 use LaravelJsonApi\Testing\MakesJsonApiRequests;

@@ -1,6 +1,6 @@
 <?php
 
-namespace Dystcz\LunarNewsletter;
+namespace Dystcz\LunarApiNewsletter;
 
 use Illuminate\Support\ServiceProvider;
 

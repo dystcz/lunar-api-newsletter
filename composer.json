@@ -54,12 +54,12 @@
     ],
     "autoload": {
         "psr-4": {
-            "Dystcz\\LunarNewsletter\\": "src"
+            "Dystcz\\LunarApiNewsletter\\": "src"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "Dystcz\\LunarNewsletter\\Tests\\": "tests"
+            "Dystcz\\LunarApiNewsletter\\Tests\\": "tests"
         }
     },
     "scripts": {
@@ -75,10 +75,10 @@
     "extra": {
         "laravel": {
             "providers": [
-                "Dystcz\\LunarNewsletter\\LunarNewsletterServiceProvider"
+                "Dystcz\\LunarApiNewsletter\\LunarApiNewsletterServiceProvider"
             ],
             "aliases": {
-                "LunarNewsletter": "Dystcz\\LunarNewsletter\\LunarNewsletterFacade"
+                "LunarApiNewsletter": "Dystcz\\LunarApiNewsletter\\LunarApiNewsletterFacade"
             }
         }
     },

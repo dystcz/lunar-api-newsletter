@@ -1,6 +1,6 @@
 <?php
 
-namespace Dystcz\LunarNewsletter\Domain\Newsletter\Actions;
+namespace Dystcz\LunarApiNewsletter\Domain\Newsletter\Actions;
 
 use Spatie\Newsletter\Facades\Newsletter;
 

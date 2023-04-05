@@ -1,5 +1,5 @@
 <?php
 
-use Dystcz\LunarNewsletter\Tests\TestCase;
+use Dystcz\LunarApiNewsletter\Tests\TestCase;
 
 uses(TestCase::class)->in(__DIR__);

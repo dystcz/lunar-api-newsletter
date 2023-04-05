@@ -17,7 +17,7 @@ return [
             // If you want to change the behaviour or add some data,
             // simply extend the package product groups and add your logic
             'route_groups' => [
-                'newsletters' => Dystcz\LunarNewsletter\Domain\Newsletter\Http\Routing\NewsletterRouteGroup::class,
+                'newsletters' => Dystcz\LunarApiNewsletter\Domain\Newsletter\Http\Routing\NewsletterRouteGroup::class,
             ],
         ],
     ],

@@ -1,8 +1,8 @@
 <?php
 
-namespace Dystcz\LunarNewsletter\Domain\Newsletter\JsonApi\V1;
+namespace Dystcz\LunarApiNewsletter\Domain\Newsletter\JsonApi\V1;
 
-use Dystcz\LunarNewsletter\Domain\Newsletter\Entities\NewsletterSubscription;
+use Dystcz\LunarApiNewsletter\Domain\Newsletter\Entities\NewsletterSubscription;
 use LaravelJsonApi\Eloquent\Fields\Str;
 use LaravelJsonApi\Eloquent\Schema;
 
