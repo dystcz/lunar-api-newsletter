@@ -1,14 +1,14 @@
-# [WIP] Lunar Newsletter
+# Lunar API Newsletter
 
-This [lunar-api](https://github.com/dystcz/lunar-api) compatible package is basically an API wrapper 
-of [spatie/laravel-newsletter](https://github.com/spatie/laravel-newsletter) for the [lunar](https://github.com/lunarphp/lunar) backend
-which allows your users to **easily sign-up** to Mailchimp or Mailcoach or other email marketing services.
+This [lunar-api](https://github.com/dystcz/lunar-api) compatible package exposes an API endpoint which
+allows you to subscribe to newsletter lists by providing an email address
+using the [spatie/laravel-newsletter](https://github.com/spatie/laravel-newsletter) package.
+
+This initial version only takes an email address and subscribes to a list. There may be more endpoints added upon request in the future.
 
 [![Latest Version on Packagist](https://img.shields.io/packagist/v/dystcz/lunar-newsletter.svg?style=flat-square)](https://packagist.org/packages/dystcz/lunar-newsletter)
 [![Total Downloads](https://img.shields.io/packagist/dt/dystcz/lunar-newsletter.svg?style=flat-square)](https://packagist.org/packages/dystcz/lunar-newsletter)
 ![GitHub Actions](https://github.com/dystcz/lunar-newsletter/actions/workflows/main.yml/badge.svg)
-
-Add the possibility to sign up to newsletter lists to your Lunar backend
 
 ## Installation
 
@@ -16,19 +16,53 @@ You can install the package via composer:
 
 ```bash
 composer require dystcz/lunar-newsletter
-
 ```
+
 To publish the [laravel-newsletter](https://github.com/spatie/laravel-newsletter) config file to `config/newsletter.php` run:
 
 ```bash
 php artisan vendor:publish --tag="newsletter-config"
 ```
 
-You car read more about the configuration options here: [spatie/laravel-newsletter](https://github.com/spatie/laravel-newsletter)
+The full configuration can be found here: [spatie/laravel-newsletter](https://github.com/spatie/laravel-newsletter/blob/main/config/newsletter.php)
+
+### Using Mailcoach
+
+To let this package work with Mailcoach, you need to install the Mailcoach SDK.
+
+```bash
+composer require spatie/mailcoach-sdk-php
+```
+
+Next, you must provide values for the API key, endpoint and `list.subscribers.id` in the config file. You'll find the API key and endpoint in the [Mailcoach](https://mailcoach.app) settings screen. The value for `list.subscribers.id` must be the UUID of an email list on Mailcoach. You'll find this value on the settings screen of an email list
+
+### Using MailChimp
+
+To use MailChimp, install this extra package.
+
+```bash
+composer require drewm/mailchimp-api
+```
+
+The `driver` key of the `newsletter` config file must be set to `Spatie\Newsletter\Drivers\MailChimpDriver::class`.
+
+Next, you must provide values for the API key and `list.subscribers.id`. You'll find these values in the MailChimp UI.
+
+The `endpoint` config value can be set to an empty string.
+
 
 ## Usage
 
-Just install the package and hit `/api/v1/newsletters/-actions/subscribe`
+Make a `POST` request here `/api/v1/newsletters/-actions/subscribe` with the following data:
+
+```php
+$data = [ 
+    'type' => 'newsletters',
+    'attributes' => [
+        'email' => $email,
+    ],
+];
+```
 
 ### Testing
 
