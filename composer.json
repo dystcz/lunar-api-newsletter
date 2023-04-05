@@ -25,6 +25,10 @@
         "spatie/laravel-newsletter": "^5.1",
         "vyuldashev/laravel-openapi": "^1.10.1"
     },
+    "suggest": {
+        "spatie/mailcoach-sdk-php": "For working with Mailcoach",
+        "drewm/mailchimp-api": "For working with MailChimp"
+    },
     "require-dev": {
         "drewm/mailchimp-api": "^2.5",
         "driftingly/rector-laravel": "^0.17.0",
