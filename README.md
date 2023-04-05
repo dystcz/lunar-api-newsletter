@@ -6,9 +6,9 @@ using the [spatie/laravel-newsletter](https://github.com/spatie/laravel-newslett
 
 This initial version only takes an email address and subscribes to a list. There may be more endpoints added upon request in the future.
 
-[![Latest Version on Packagist](https://img.shields.io/packagist/v/dystcz/lunar-newsletter.svg?style=flat-square)](https://packagist.org/packages/dystcz/lunar-newsletter)
-[![Total Downloads](https://img.shields.io/packagist/dt/dystcz/lunar-newsletter.svg?style=flat-square)](https://packagist.org/packages/dystcz/lunar-newsletter)
-![GitHub Actions](https://github.com/dystcz/lunar-newsletter/actions/workflows/main.yml/badge.svg)
+[![Latest Version on Packagist](https://img.shields.io/packagist/v/dystcz/lunar-api-newsletter.svg?style=flat-square)](https://packagist.org/packages/dystcz/lunar-api-newsletter)
+[![Total Downloads](https://img.shields.io/packagist/dt/dystcz/lunar-api-newsletter.svg?style=flat-square)](https://packagist.org/packages/dystcz/lunar-api-newsletter)
+![GitHub Actions](https://github.com/dystcz/lunar-api-newsletter/actions/workflows/main.yml/badge.svg)
 
 ## Installation
 

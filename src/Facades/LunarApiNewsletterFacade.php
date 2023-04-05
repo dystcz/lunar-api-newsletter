@@ -16,6 +16,6 @@ class LunarApiNewsletterFacade extends Facade
      */
     protected static function getFacadeAccessor()
     {
-        return 'lunar-newsletter';
+        return 'lunar-api-newsletter';
     }
 }
