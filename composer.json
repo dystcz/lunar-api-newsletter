@@ -1,9 +1,11 @@
 {
-    "name": "dystcz/lunar-newsletter",
+    "name": "dystcz/lunar-api-newsletter",
     "description": "Add the possibility to sign up to newsletter lists to your Lunar backend",
     "keywords": [
-        "dystcz",
-        "lunar-newsletter"
+        "dystopia",
+        "lunar-api-newsletter",
+        "lunar",
+        "newsletter"
     ],
     "homepage": "https://github.com/dystcz/lunar-newsletter",
     "license": "MIT",
