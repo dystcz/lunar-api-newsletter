@@ -7,7 +7,7 @@ use Illuminate\Support\Facades\Facade;
 /**
  * @see \Dystcz\LunarNewsletter\Skeleton\SkeletonClass
  */
-class LunarNewsletterFacade extends Facade
+class LunarApiNewsletterFacade extends Facade
 {
     /**
      * Get the registered name of the component.

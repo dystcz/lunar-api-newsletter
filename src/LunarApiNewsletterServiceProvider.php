@@ -4,7 +4,7 @@ namespace Dystcz\LunarNewsletter;
 
 use Illuminate\Support\ServiceProvider;
 
-class LunarNewsletterServiceProvider extends ServiceProvider
+class LunarApiNewsletterServiceProvider extends ServiceProvider
 {
     /**
      * Bootstrap the application services.
@@ -44,7 +44,7 @@ class LunarNewsletterServiceProvider extends ServiceProvider
 
         // Register the main class to use with the facade
         $this->app->singleton('lunar-newsletter', function () {
-            return new LunarNewsletter();
+            return new LunarApiNewsletter();
         });
     }
 }

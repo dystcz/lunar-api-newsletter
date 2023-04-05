@@ -2,7 +2,7 @@
 
 namespace Dystcz\LunarNewsletter;
 
-class LunarNewsletter
+class LunarApiNewsletter
 {
     // Build your next great package.
 }

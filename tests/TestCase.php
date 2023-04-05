@@ -4,7 +4,7 @@ namespace Dystcz\LunarNewsletter\Tests;
 
 use Cartalyst\Converter\Laravel\ConverterServiceProvider;
 use Dystcz\LunarApi\LunarApiServiceProvider;
-use Dystcz\LunarNewsletter\LunarNewsletterServiceProvider;
+use Dystcz\LunarNewsletter\LunarApiNewsletterServiceProvider;
 use Dystcz\LunarNewsletter\Tests\Stubs\JsonApi\Server;
 use Illuminate\Contracts\Debug\ExceptionHandler;
 use Illuminate\Foundation\Application;
@@ -32,7 +32,7 @@ abstract class TestCase extends Orchestra
         config()->set('lunar-api.additional_servers', [Server::class]);
 
         return [
-            LunarNewsletterServiceProvider::class,
+            LunarApiNewsletterServiceProvider::class,
 
             // Laravel JsonApi
             \LaravelJsonApi\Encoder\Neomerx\ServiceProvider::class,

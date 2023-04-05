@@ -15,7 +15,7 @@ This initial version only takes an email address and subscribes to a list. There
 You can install the package via composer:
 
 ```bash
-composer require dystcz/lunar-newsletter
+composer require dystcz/lunar-api-newsletter
 ```
 
 To publish the [laravel-newsletter](https://github.com/spatie/laravel-newsletter) config file to `config/newsletter.php` run:
