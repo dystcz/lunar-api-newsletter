@@ -2,17 +2,14 @@
 
 namespace Dystcz\LunarApiNewsletter\Tests;
 
-use Cartalyst\Converter\Laravel\ConverterServiceProvider;
-use Dystcz\LunarApi\LunarApiServiceProvider;
 use Dystcz\LunarApiNewsletter\LunarApiNewsletterServiceProvider;
 use Dystcz\LunarApiNewsletter\Tests\Stubs\JsonApi\Server;
 use Illuminate\Contracts\Debug\ExceptionHandler;
 use Illuminate\Foundation\Application;
+use Illuminate\Support\Facades\Config;
 use LaravelJsonApi\Testing\MakesJsonApiRequests;
 use LaravelJsonApi\Testing\TestExceptionHandler;
-use Lunar\LunarServiceProvider;
 use Orchestra\Testbench\TestCase as Orchestra;
-use Spatie\Newsletter\NewsletterServiceProvider;
 
 abstract class TestCase extends Orchestra
 {
@@ -29,7 +26,7 @@ abstract class TestCase extends Orchestra
      */
     protected function getPackageProviders($app)
     {
-        config()->set('lunar-api.additional_servers', [Server::class]);
+        Config::set('lunar-api.additional_servers', [Server::class]);
 
         return [
             LunarApiNewsletterServiceProvider::class,
@@ -40,14 +37,14 @@ abstract class TestCase extends Orchestra
             \LaravelJsonApi\Spec\ServiceProvider::class,
 
             // Lunar Api
-            LunarApiServiceProvider::class,
+            \Dystcz\LunarApi\LunarApiServiceProvider::class,
 
             // Lunar core
-            LunarServiceProvider::class,
-            ConverterServiceProvider::class,
+            \Lunar\LunarServiceProvider::class,
+            \Cartalyst\Converter\Laravel\ConverterServiceProvider::class,
 
             // Spatie Newsletter
-            NewsletterServiceProvider::class,
+            \Spatie\Newsletter\NewsletterServiceProvider::class,
         ];
     }
 
@@ -56,8 +53,8 @@ abstract class TestCase extends Orchestra
      */
     public function getEnvironmentSetUp($app)
     {
-        config()->set('newsletter.driver', \Spatie\Newsletter\Drivers\MailChimpDriver::class);
-        config()->set('newsletter.driver_arguments.endpoint', '');
+        Config::set('newsletter.driver', \Spatie\Newsletter\Drivers\MailChimpDriver::class);
+        Config::set('newsletter.driver_arguments.endpoint', '');
     }
 
     protected function resolveApplicationExceptionHandler($app): void
