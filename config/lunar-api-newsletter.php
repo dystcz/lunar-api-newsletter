@@ -12,12 +12,13 @@ return [
     // Configuration for specific domains
     'domains' => [
         'newsletters' => [
+            'schema' => Dystcz\LunarApiNewsletter\Domain\Newsletter\JsonApi\V1\NewsletterSchema::class,
 
             // Route groups which get registered
             // If you want to change the behaviour or add some data,
             // simply extend the package product groups and add your logic
             'route_groups' => [
-                'newsletters' => Dystcz\LunarApiNewsletter\Domain\Newsletter\Http\Routing\NewsletterRouteGroup::class,
+                Dystcz\LunarApiNewsletter\Domain\Newsletter\Http\Routing\NewsletterRouteGroup::class,
             ],
         ],
     ],
