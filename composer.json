@@ -18,14 +18,12 @@
         }
     ],
     "require": {
-        "php": "^8.1",
-        "dystcz/lunar-api": "dev-main",
+        "php": "^8.2",
+        "dystcz/lunar-api": "^0.5",
         "illuminate/support": "^10.0",
         "laravel-json-api/laravel": "^3.0",
         "laravel-json-api/non-eloquent": "^3.0",
-        "lunarphp/lunar": "^0.3.0-beta",
-        "spatie/laravel-newsletter": "^5.1",
-        "vyuldashev/laravel-openapi": "^1.10.1"
+        "spatie/laravel-newsletter": "^5.1"
     },
     "suggest": {
         "spatie/mailcoach-sdk-php": "For working with Mailcoach",
