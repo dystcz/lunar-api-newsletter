@@ -2,7 +2,6 @@
 
 namespace Dystcz\LunarApiNewsletter\Tests;
 
-use Dystcz\LunarApiNewsletter\LunarApiNewsletterServiceProvider;
 use Dystcz\LunarApiNewsletter\Tests\Stubs\JsonApi\Server;
 use Illuminate\Contracts\Debug\ExceptionHandler;
 use Illuminate\Foundation\Application;
@@ -22,15 +21,15 @@ abstract class TestCase extends Orchestra
 
     /**
      * @param  Application  $app
-     * @return array
      */
-    protected function getPackageProviders($app)
+    protected function getPackageProviders($app): array
     {
-        Config::set('lunar-api.additional_servers', [Server::class]);
+        Config::set(
+            'lunar-api.additional_servers',
+            [Server::class],
+        );
 
         return [
-            LunarApiNewsletterServiceProvider::class,
-
             // Laravel JsonApi
             \LaravelJsonApi\Encoder\Neomerx\ServiceProvider::class,
             \LaravelJsonApi\Laravel\ServiceProvider::class,
@@ -38,6 +37,7 @@ abstract class TestCase extends Orchestra
 
             // Lunar Api
             \Dystcz\LunarApi\LunarApiServiceProvider::class,
+            \Dystcz\LunarApi\JsonApiServiceProvider::class,
 
             // Lunar core
             \Lunar\LunarServiceProvider::class,
@@ -45,13 +45,16 @@ abstract class TestCase extends Orchestra
 
             // Spatie Newsletter
             \Spatie\Newsletter\NewsletterServiceProvider::class,
+
+            // Lunar Api Newsletter
+            \Dystcz\LunarApiNewsletter\LunarApiNewsletterServiceProvider::class,
         ];
     }
 
     /**
      * @param  Application  $app
      */
-    public function getEnvironmentSetUp($app)
+    public function getEnvironmentSetUp($app): void
     {
         Config::set('newsletter.driver', \Spatie\Newsletter\Drivers\MailChimpDriver::class);
         Config::set('newsletter.driver_arguments.endpoint', '');
