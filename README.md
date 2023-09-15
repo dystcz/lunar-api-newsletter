@@ -8,7 +8,7 @@ This initial version only takes an email address and subscribes to a list. There
 
 [![Latest Version on Packagist](https://img.shields.io/packagist/v/dystcz/lunar-api-newsletter.svg?style=flat-square)](https://packagist.org/packages/dystcz/lunar-api-newsletter)
 [![Total Downloads](https://img.shields.io/packagist/dt/dystcz/lunar-api-newsletter.svg?style=flat-square)](https://packagist.org/packages/dystcz/lunar-api-newsletter)
-![GitHub Actions](https://github.com/dystcz/lunar-api-newsletter/actions/workflows/main.yml/badge.svg)
+![GitHub Actions](https://github.com/dystcz/lunar-api-newsletter/actions/workflows/tests.yaml/badge.svg)
 
 ## Installation
 
