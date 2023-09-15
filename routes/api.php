@@ -10,7 +10,7 @@ Route::group([
     'prefix' => Config::get('lunar-api-newsletter.route_prefix'),
     'middleware' => Config::get('lunar-api-newsletter.route_middleware'),
 ], function (Router $router) {
-    $domains = Collection::make(Config::get('lunar-api.domains'));
+    $domains = Collection::make(Config::get('lunar-api-newsletter.domains'));
 
     foreach ($domains as $domain) {
         if (isset($domain['route_groups'])) {
