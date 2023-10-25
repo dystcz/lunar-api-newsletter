@@ -2,6 +2,8 @@
 
 namespace Dystcz\LunarApiNewsletter;
 
+use Dystcz\LunarApi\Domain\JsonApi\Extensions\Facades\SchemaManifest;
+use Dystcz\LunarApiNewsletter\Domain\Newsletter\JsonApi\V1\NewsletterSchema;
 use Illuminate\Support\ServiceProvider;
 
 class LunarApiNewsletterServiceProvider extends ServiceProvider
@@ -9,7 +11,7 @@ class LunarApiNewsletterServiceProvider extends ServiceProvider
     /**
      * Bootstrap the application services.
      */
-    public function boot()
+    public function boot(): void
     {
         $this->loadRoutesFrom(__DIR__.'/../routes/api.php');
 
@@ -18,12 +20,14 @@ class LunarApiNewsletterServiceProvider extends ServiceProvider
                 __DIR__.'/../config/lunar-api-newsletter.php' => config_path('lunar-api-newsletter.php'),
             ], 'config');
         }
+
+        SchemaManifest::registerSchema(NewsletterSchema::class);
     }
 
     /**
      * Register the application services.
      */
-    public function register()
+    public function register(): void
     {
         // Automatically apply the package configuration
         $this->mergeConfigFrom(__DIR__.'/../config/lunar-api-newsletter.php', 'lunar-api-newsletter');

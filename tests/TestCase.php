@@ -2,7 +2,8 @@
 
 namespace Dystcz\LunarApiNewsletter\Tests;
 
-use Dystcz\LunarApiNewsletter\Tests\Stubs\JsonApi\Server;
+use Dystcz\LunarApi\Domain\JsonApi\Extensions\Facades\SchemaManifest;
+use Dystcz\LunarApiNewsletter\Domain\Newsletter\JsonApi\V1\NewsletterSchema;
 use Illuminate\Contracts\Debug\ExceptionHandler;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Config;
@@ -24,11 +25,6 @@ abstract class TestCase extends Orchestra
      */
     protected function getPackageProviders($app): array
     {
-        Config::set(
-            'lunar-api.additional_servers',
-            [Server::class],
-        );
-
         return [
             // Laravel JsonApi
             \LaravelJsonApi\Encoder\Neomerx\ServiceProvider::class,
@@ -58,6 +54,8 @@ abstract class TestCase extends Orchestra
     {
         Config::set('newsletter.driver', \Spatie\Newsletter\Drivers\MailChimpDriver::class);
         Config::set('newsletter.driver_arguments.endpoint', '');
+
+        SchemaManifest::registerSchema(NewsletterSchema::class);
     }
 
     protected function resolveApplicationExceptionHandler($app): void
