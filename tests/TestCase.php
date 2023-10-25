@@ -52,10 +52,13 @@ abstract class TestCase extends Orchestra
      */
     public function getEnvironmentSetUp($app): void
     {
+        /**
+         * Lunar API configuration
+         */
+        SchemaManifest::registerSchema(NewsletterSchema::class);
+
         Config::set('newsletter.driver', \Spatie\Newsletter\Drivers\MailChimpDriver::class);
         Config::set('newsletter.driver_arguments.endpoint', '');
-
-        SchemaManifest::registerSchema(NewsletterSchema::class);
     }
 
     protected function resolveApplicationExceptionHandler($app): void
