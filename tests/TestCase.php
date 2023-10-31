@@ -2,7 +2,6 @@
 
 namespace Dystcz\LunarApiNewsletter\Tests;
 
-use Dystcz\LunarApiNewsletter\Tests\Stubs\JsonApi\Server;
 use Illuminate\Contracts\Debug\ExceptionHandler;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Config;
@@ -24,12 +23,10 @@ abstract class TestCase extends Orchestra
      */
     protected function getPackageProviders($app): array
     {
-        Config::set(
-            'lunar-api.additional_servers',
-            [Server::class],
-        );
-
         return [
+            // Ray
+            \Spatie\LaravelRay\RayServiceProvider::class,
+
             // Laravel JsonApi
             \LaravelJsonApi\Encoder\Neomerx\ServiceProvider::class,
             \LaravelJsonApi\Laravel\ServiceProvider::class,
@@ -56,10 +53,16 @@ abstract class TestCase extends Orchestra
      */
     public function getEnvironmentSetUp($app): void
     {
+        /**
+         * App configuration.
+         */
         Config::set('newsletter.driver', \Spatie\Newsletter\Drivers\MailChimpDriver::class);
         Config::set('newsletter.driver_arguments.endpoint', '');
     }
 
+    /**
+     * Resolve application HTTP exception handler implementation.
+     */
     protected function resolveApplicationExceptionHandler($app): void
     {
         $app->singleton(
