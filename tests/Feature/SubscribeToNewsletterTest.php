@@ -1,11 +1,15 @@
 <?php
 
-namespace Dystcz\LunarApiNewsletter\Tests\Feature;
-
-use function Pest\Faker\fake;
+use Dystcz\LunarApiNewsletter\Tests\TestCase;
+use Illuminate\Foundation\Testing\RefreshDatabase;
 use Spatie\Newsletter\Facades\Newsletter;
 
+use function Pest\Faker\fake;
+
+uses(TestCase::class, RefreshDatabase::class);
+
 it('can subscribe user to newsletter', function () {
+    /** @var TestCase $this */
     $email = fake()->email();
 
     Newsletter::shouldReceive('subscribe')
@@ -29,6 +33,7 @@ it('can subscribe user to newsletter', function () {
 });
 
 it('requires emails in order to sign up', function () {
+    /** @var TestCase $this */
     $data = [
         'type' => 'newsletters',
         'attributes' => [
@@ -52,6 +57,7 @@ it('requires emails in order to sign up', function () {
 });
 
 it('doesnt accept invalid emails', function () {
+    /** @var TestCase $this */
     $data = [
         'type' => 'newsletters',
         'attributes' => [

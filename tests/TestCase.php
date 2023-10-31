@@ -32,13 +32,17 @@ abstract class TestCase extends Orchestra
             \LaravelJsonApi\Laravel\ServiceProvider::class,
             \LaravelJsonApi\Spec\ServiceProvider::class,
 
+            // Lunar core
+            \Lunar\LunarServiceProvider::class,
+            \Spatie\MediaLibrary\MediaLibraryServiceProvider::class,
+            \Spatie\Activitylog\ActivitylogServiceProvider::class,
+            \Cartalyst\Converter\Laravel\ConverterServiceProvider::class,
+            \Kalnoy\Nestedset\NestedSetServiceProvider::class,
+            \Spatie\LaravelBlink\BlinkServiceProvider::class,
+
             // Lunar Api
             \Dystcz\LunarApi\LunarApiServiceProvider::class,
             \Dystcz\LunarApi\JsonApiServiceProvider::class,
-
-            // Lunar core
-            \Lunar\LunarServiceProvider::class,
-            \Cartalyst\Converter\Laravel\ConverterServiceProvider::class,
 
             // Spatie Newsletter
             \Spatie\Newsletter\NewsletterServiceProvider::class,
@@ -58,6 +62,14 @@ abstract class TestCase extends Orchestra
          */
         Config::set('newsletter.driver', \Spatie\Newsletter\Drivers\MailChimpDriver::class);
         Config::set('newsletter.driver_arguments.endpoint', '');
+
+        Config::set('database.default', 'sqlite');
+        Config::set('database.migrations', 'migrations');
+        Config::set('database.connections.sqlite', [
+            'driver' => 'sqlite',
+            'database' => ':memory:',
+            'prefix' => '',
+        ]);
     }
 
     /**
