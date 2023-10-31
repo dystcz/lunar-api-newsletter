@@ -1,25 +1,22 @@
 <?php
 
+/*
+ * Lunar API Newsletter configuration
+ */
 return [
-
-    // Prefix for all the API routes
-    // Leave empty if you don't want to use a prefix
-    'route_prefix' => 'api',
-
-    // Middleware for all the API routes
-    'route_middleware' => ['api'],
-
     // Configuration for specific domains
     'domains' => [
-        'newsletters' => [
+        'newsletter' => [
+            'model' => null,
+            'lunar_model' => null,
+            'policy' => null,
             'schema' => Dystcz\LunarApiNewsletter\Domain\Newsletter\JsonApi\V1\NewsletterSchema::class,
-
-            // Route groups which get registered
-            // If you want to change the behaviour or add some data,
-            // simply extend the package product groups and add your logic
-            'route_groups' => [
-                Dystcz\LunarApiNewsletter\Domain\Newsletter\Http\Routing\NewsletterRouteGroup::class,
-            ],
+            'resource' => Dystcz\LunarApiNewsletter\Domain\Newsletter\JsonApi\V1\NewsletterResource::class,
+            'query' => Dystcz\LunarApiNewsletter\Domain\Newsletter\JsonApi\V1\NewsletterQuery::class,
+            'collection_query' => Dystcz\LunarApiNewsletter\Domain\Newsletter\JsonApi\V1\NewsletterCollectionQuery::class,
+            'routes' => Dystcz\LunarApiNewsletter\Domain\Newsletter\Http\Routing\NewsletterRouteGroup::class,
+            'route_actions' => [],
+            'settings' => [],
         ],
     ],
 ];
