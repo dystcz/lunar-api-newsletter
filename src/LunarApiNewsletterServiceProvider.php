@@ -35,7 +35,6 @@ class LunarApiNewsletterServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-
         $this->loadRoutesFrom("{$this->root}/routes/api.php");
 
         if ($this->app->runningInConsole()) {
