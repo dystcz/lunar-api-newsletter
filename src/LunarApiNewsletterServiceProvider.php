@@ -39,6 +39,7 @@ class LunarApiNewsletterServiceProvider extends ServiceProvider
 
         if ($this->app->runningInConsole()) {
             $this->publishConfig();
+            $this->publishTranslations();
         }
     }
 
