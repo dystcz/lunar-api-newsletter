@@ -48,7 +48,7 @@ class LunarApiNewsletterServiceProvider extends ServiceProvider
     protected function registerConfig(): void
     {
         $this->mergeConfigFrom(
-            "{$this->root}/config/lunar-api-newsletter.php",
+            "{$this->root}/config/newsletter.php",
             'lunar-api.newsletter',
         );
     }
@@ -59,7 +59,7 @@ class LunarApiNewsletterServiceProvider extends ServiceProvider
     protected function publishConfig(): void
     {
         $this->publishes([
-            "{$this->root}/config/lunar-api-newsletter.php" => config_path('lunar-api.newsletter.php'),
+            "{$this->root}/config/newsletter.php" => config_path('lunar-api.newsletter.php'),
         ], 'lunar-api-newsletter');
     }
 
