@@ -2,7 +2,7 @@
 
 namespace Dystcz\LunarApiNewsletter\Domain\Newsletter\Http\Controllers;
 
-use Dystcz\LunarApi\Controller;
+use Dystcz\LunarApi\Base\Controller;
 use Dystcz\LunarApiNewsletter\Domain\Newsletter\Actions\SubscribeToNewsletter;
 use Dystcz\LunarApiNewsletter\Domain\Newsletter\JsonApi\V1\NewsletterSubscriptionRequest;
 use Illuminate\Http\Response;
