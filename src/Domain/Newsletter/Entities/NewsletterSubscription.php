@@ -9,7 +9,7 @@ class NewsletterSubscription implements Arrayable
     /**
      * {@inheritDoc}
      */
-    public function toArray()
+    public function toArray(): array
     {
         return [
             //
