@@ -8,6 +8,8 @@ class NewsletterSubscriptionRequest extends ResourceRequest
 {
     /**
      * Get the validation rules for the resource.
+     *
+     * @return array<string,array<int,mixed>>
      */
     public function rules(): array
     {
@@ -19,11 +21,16 @@ class NewsletterSubscriptionRequest extends ResourceRequest
         ];
     }
 
-    public function messages()
+    /**
+     * Get custom messages for validator errors.
+     *
+     * @return array<string,string>
+     */
+    public function messages(): array
     {
         return [
-            'email.required' => 'Please enter an email address',
-            'email.email' => 'Please enter a valid email address',
+            'email.required' => __('lunar-api-newsletter::validation.newsletter_subscription.email.required'),
+            'email.email' => __('lunar-api-newsletter::validation.newsletter_subscription.email.email'),
         ];
     }
 }
