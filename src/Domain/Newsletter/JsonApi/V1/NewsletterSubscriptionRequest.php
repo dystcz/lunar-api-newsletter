@@ -29,8 +29,8 @@ class NewsletterSubscriptionRequest extends ResourceRequest
     public function messages(): array
     {
         return [
-            'email.required' => __('lunar-api-newsletter::validation.newsletter_subscription.email.required'),
-            'email.email' => __('lunar-api-newsletter::validation.newsletter_subscription.email.email'),
+            'email.required' => __('lunar-api-newsletter::validations.newsletter_subscription.email.required'),
+            'email.email' => __('lunar-api-newsletter::validations.newsletter_subscription.email.email'),
         ];
     }
 }
