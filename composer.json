@@ -21,8 +21,6 @@
     "php": "^8.2",
     "dystcz/lunar-api": "^0.6.0-dev",
     "illuminate/support": "^10.0",
-    "laravel-json-api/laravel": "^3.0",
-    "laravel-json-api/non-eloquent": "^3.0",
     "spatie/laravel-newsletter": "^5.1"
   },
   "suggest": {
@@ -44,12 +42,6 @@
     "spatie/laravel-ray": "^1.32",
     "spatie/mailcoach-sdk-php": "^1.1"
   },
-  "repositories": [
-    {
-      "type": "vcs",
-      "url": "https://github.com/lorinczdev/json-api"
-    }
-  ],
   "autoload": {
     "psr-4": {
       "Dystcz\\LunarApiNewsletter\\": "src"
