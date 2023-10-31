@@ -6,7 +6,7 @@
 return [
     // Configuration for specific domains
     'domains' => [
-        'newsletter' => [
+        'newsletters' => [
             'model' => null,
             'lunar_model' => null,
             'policy' => null,
