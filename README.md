@@ -26,15 +26,19 @@ php artisan vendor:publish --tag="newsletter-config"
 
 The full configuration can be found here: [spatie/laravel-newsletter](https://github.com/spatie/laravel-newsletter/blob/main/config/newsletter.php)
 
-### Using Mailcoach
+### Using Brevo
 
-To let this package work with Mailcoach, you need to install the Mailcoach SDK.
+To use Brevo, install this extra package.
 
 ```bash
-composer require spatie/mailcoach-sdk-php
+composer require getbrevo/brevo-php "1.x.x"
 ```
 
-Next, you must provide values for the API key, endpoint and `list.subscribers.id` in the config file. You'll find the API key and endpoint in the [Mailcoach](https://mailcoach.app) settings screen. The value for `list.subscribers.id` must be the UUID of an email list on Mailcoach. You'll find this value on the settings screen of an email list
+The `driver` key of the `newsletter` config file must be set to `Dystcz\LunarApiNewsletter\Drivers\BrevoDriver::class`.
+
+Next, you must provide values for the API key and `list.subscribers.id`. You'll find these values in [Brevo settings](https://app.brevo.com/settings/keys/api).
+
+The `endpoint` config value can be set to an empty string.
 
 ### Using MailChimp
 
@@ -50,13 +54,22 @@ Next, you must provide values for the API key and `list.subscribers.id`. You'll 
 
 The `endpoint` config value can be set to an empty string.
 
+### Using Mailcoach
+
+To let this package work with Mailcoach, you need to install the Mailcoach SDK.
+
+```bash
+composer require spatie/mailcoach-sdk-php
+```
+
+Next, you must provide values for the API key, endpoint and `list.subscribers.id` in the config file. You'll find the API key and endpoint in the [Mailcoach](https://mailcoach.app) settings screen. The value for `list.subscribers.id` must be the UUID of an email list on Mailcoach. You'll find this value on the settings screen of an email list
 
 ## Usage
 
 Make a `POST` request here `/api/v1/newsletters/-actions/subscribe` with the following data:
 
 ```php
-$data = [ 
+$data = [
     'type' => 'newsletters',
     'attributes' => [
         'email' => $email,
@@ -84,11 +97,10 @@ If you discover any security related issues, please email jakub@dy.st instead of
 
 ## Credits
 
--   [Jakub Theimer](https://github.com/dystcz)
--   [Spatie](https://github.com/spatie)
--   [All Contributors](../../contributors)
+- [Jakub Theimer](https://github.com/dystcz)
+- [Spatie](https://github.com/spatie)
+- [All Contributors](../../contributors)
 
 ## License
 
 The MIT License (MIT). Please see [License File](LICENSE.md) for more information.
-
