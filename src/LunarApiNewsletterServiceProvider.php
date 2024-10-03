@@ -26,7 +26,7 @@ class LunarApiNewsletterServiceProvider extends ServiceProvider
 
         // Register the main class to use with the facade
         $this->app->singleton('lunar-api-newsletter', function () {
-            return new LunarApiNewsletter();
+            return new LunarApiNewsletter;
         });
     }
 
