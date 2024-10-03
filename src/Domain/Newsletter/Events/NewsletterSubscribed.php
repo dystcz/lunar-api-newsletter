@@ -6,10 +6,9 @@ use Illuminate\Foundation\Events\Dispatchable;
 
 class NewsletterSubscribed
 {
-  use Dispatchable;
+    use Dispatchable;
 
-  public function __construct(
-    public string $email,
-  ) {
-  }
+    public function __construct(
+        public string $email,
+    ) {}
 }
