@@ -38,7 +38,7 @@ class BrevoDriver implements Driver
             );
 
         $this->brevo = new Brevo(
-            client: new GuzzleClient(),
+            client: new GuzzleClient,
             config: $config,
         );
 
@@ -81,7 +81,7 @@ class BrevoDriver implements Driver
         array $listIds = [],
         array $options = []
     ): CreateUpdateContactModel|false {
-        $createContact = new CreateContact();
+        $createContact = new CreateContact;
         $createContact->setEmail($email);
 
         if (! empty($listIds)) {
@@ -138,7 +138,7 @@ class BrevoDriver implements Driver
         array $listIds = [],
         array $options = [],
     ): bool {
-        $updateContact = new \Brevo\Client\Model\UpdateContact();
+        $updateContact = new \Brevo\Client\Model\UpdateContact;
 
         if (! empty($listIds)) {
             $updateContact->setListIds($listIds);
@@ -191,7 +191,7 @@ class BrevoDriver implements Driver
     {
         $list = $this->lists->findByName($listName);
 
-        $contactEmails = new RemoveContactFromList();
+        $contactEmails = new RemoveContactFromList;
         $contactEmails->setEmails([$email]);
 
         try {
