@@ -19,7 +19,7 @@
   ],
   "require": {
     "php": "^8.2",
-    "dystcz/lunar-api": "^1.0.0-alpha",
+    "dystcz/lunar-api": "^1.0.0-beta",
     "illuminate/support": "^11.0",
     "spatie/laravel-newsletter": "^5.1"
   },
@@ -29,6 +29,7 @@
     "getbrevo/brevo-php": "For working with Brevo"
   },
   "require-dev": {
+    "barryvdh/laravel-ide-helper": "^3.0",
     "laravel-json-api/testing": "^3.0",
     "drewm/mailchimp-api": "^2.5",
     "getbrevo/brevo-php": "^1.0",
