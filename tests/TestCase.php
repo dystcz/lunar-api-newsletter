@@ -2,16 +2,19 @@
 
 namespace Dystcz\LunarApiNewsletter\Tests;
 
+use Illuminate\Contracts\Config\Repository;
 use Illuminate\Contracts\Debug\ExceptionHandler;
 use Illuminate\Foundation\Application;
-use Illuminate\Support\Facades\Config;
+use Illuminate\Foundation\Bootstrap\LoadEnvironmentVariables;
 use LaravelJsonApi\Testing\MakesJsonApiRequests;
 use LaravelJsonApi\Testing\TestExceptionHandler;
+use Orchestra\Testbench\Concerns\WithWorkbench;
 use Orchestra\Testbench\TestCase as Orchestra;
 
 abstract class TestCase extends Orchestra
 {
     use MakesJsonApiRequests;
+    use WithWorkbench;
 
     protected function setUp(): void
     {
@@ -40,9 +43,16 @@ abstract class TestCase extends Orchestra
             \Kalnoy\Nestedset\NestedSetServiceProvider::class,
             \Spatie\LaravelBlink\BlinkServiceProvider::class,
 
+            // Livewire
+            \Livewire\LivewireServiceProvider::class,
+
             // Lunar Api
             \Dystcz\LunarApi\LunarApiServiceProvider::class,
             \Dystcz\LunarApi\JsonApiServiceProvider::class,
+
+            // Hashids
+            \Vinkla\Hashids\HashidsServiceProvider::class,
+            \Dystcz\LunarApi\LunarApiHashidsServiceProvider::class,
 
             // Spatie Newsletter
             \Spatie\Newsletter\NewsletterServiceProvider::class,
@@ -55,21 +65,35 @@ abstract class TestCase extends Orchestra
     /**
      * @param  Application  $app
      */
-    public function getEnvironmentSetUp($app): void
+    protected function defineEnvironment($app): void
     {
-        /**
-         * App configuration.
-         */
-        Config::set('newsletter.driver', \Spatie\Newsletter\Drivers\MailChimpDriver::class);
-        Config::set('newsletter.driver_arguments.endpoint', '');
+        $app->useEnvironmentPath(__DIR__.'/..');
+        $app->bootstrapWith([LoadEnvironmentVariables::class]);
 
-        Config::set('database.default', 'sqlite');
-        Config::set('database.migrations', 'migrations');
-        Config::set('database.connections.sqlite', [
-            'driver' => 'sqlite',
-            'database' => ':memory:',
-            'prefix' => '',
-        ]);
+        tap($app['config'], function (Repository $config) {
+            /**
+             * App configuration.
+             */
+            $config->set('newsletter.driver', \Spatie\Newsletter\Drivers\MailChimpDriver::class);
+            $config->set('newsletter.driver_arguments.endpoint', '');
+
+            $config->set('database.default', 'sqlite');
+            $config->set('database.migrations', 'migrations');
+            $config->set('database.connections.sqlite', [
+                'driver' => 'sqlite',
+                'database' => ':memory:',
+                'prefix' => '',
+            ]);
+        });
+    }
+
+    /**
+     * Define database migrations.
+     */
+    protected function defineDatabaseMigrations(): void
+    {
+        $this->loadLaravelMigrations();
+        // $this->loadMigrationsFrom(workbench_path('database/migrations'));
     }
 
     /**
